@@ -1,12 +1,17 @@
-/*
- * Copyright 2019 IceRock MAG Inc. Use of this source code is governed by the Apache 2.0 license.
- */
-
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.multiplatform")
     id("dev.icerock.mobile.multiplatform")
     id("dev.icerock.mobile.multiplatform-resources")
+    id("kotlinx-serialization")
+//    id("kotlin-android-extensions")
+    id("com.squareup.sqldelight")
+}
+
+sqldelight {
+    database("Plugin") {
+        packageName =  Versions.App.namespace
+    }
 }
 
 android {
@@ -24,28 +29,21 @@ val mppLibs = listOf(
     Deps.Libs.MultiPlatform.mokoParcelize,
     Deps.Libs.MultiPlatform.mokoResources,
     Deps.Libs.MultiPlatform.mokoMvvm,
-    Deps.Libs.MultiPlatform.mokoUnits
-)
-val mppModules = listOf(
-    Modules.MultiPlatform.domain,
-    Modules.MultiPlatform.Feature.config,
-    Modules.MultiPlatform.Feature.list
+    Deps.Libs.MultiPlatform.mokoUnits,
+    Deps.Libs.MultiPlatform.kotlinStdLib,
+    Deps.Libs.MultiPlatform.coroutines,
+    Deps.Libs.MultiPlatform.ktorClient,
+    Deps.Libs.MultiPlatform.sqldelight
 )
 
 setupFramework(
-    exports = mppLibs + mppModules
+    exports = mppLibs
 )
 
 dependencies {
-    mppLibrary(Deps.Libs.MultiPlatform.kotlinStdLib)
-    mppLibrary(Deps.Libs.MultiPlatform.coroutines)
-
-    androidLibrary(Deps.Libs.Android.lifecycle)
-
     mppLibs.forEach { mppLibrary(it) }
-    mppModules.forEach { mppModule(it) }
 }
 
 multiplatformResources {
-    multiplatformResourcesPackage = "org.example.library"
+    multiplatformResourcesPackage = "${Versions.App.namespace}.library"
 }

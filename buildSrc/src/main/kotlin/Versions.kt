@@ -1,8 +1,11 @@
-/*
- * Copyright 2019 IceRock MAG Inc. Use of this source code is governed by the Apache 2.0 license.
- */
-
 object Versions {
+
+    object App {
+        const val namespace = "com.rompos.deactivator"
+        const val version = 1
+        const val versionCode = "1.0"
+    }
+
     object Android {
         const val compileSdk = 28
         const val targetSdk = 28
@@ -14,6 +17,8 @@ object Versions {
     private const val mokoResources = "0.9.0"
     private const val mokoNetwork = "0.6.0"
     private const val mokoUnits = "0.3.1"
+
+    const val sqldelight = "1.4.0"
 
     object Plugins {
         const val kotlin = Versions.kotlin
@@ -30,13 +35,16 @@ object Versions {
             const val appCompat = "1.1.0"
             const val material = "1.0.0"
             const val constraintLayout = "1.1.3"
-            const val lifecycle = "2.0.0"
+            const val lifecycleExtension = "2.0.0"
+            const val lifecycle = "2.2.0"
             const val recyclerView = "1.0.0"
+            const val swiperefreshlayout = "1.1.0"
+            const val coroutines = "1.3.5"
+            const val core = "1.2.0"
         }
 
         object MultiPlatform {
             const val kotlinStdLib = Versions.kotlin
-
             const val coroutines = "1.3.5"
             const val serialization = "0.20.0"
             const val ktorClient = "1.3.2"

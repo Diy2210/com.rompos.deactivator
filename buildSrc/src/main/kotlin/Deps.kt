@@ -14,6 +14,8 @@ object Deps {
             "dev.icerock.moko:network-generator:${Versions.Plugins.mokoNetwork}"
         const val mokoUnits =
             "dev.icerock.moko:units-generator:${Versions.Plugins.mokoUnits}"
+        const val sqldelight =
+            "com.squareup.sqldelight:gradle-plugin:${Versions.sqldelight}"
     }
 
     object Libs {
@@ -33,8 +35,20 @@ object Deps {
             val constraintLayout = AndroidLibrary(
                 name = "androidx.constraintlayout:constraintlayout:${Versions.Libs.Android.constraintLayout}"
             )
+            val lifecycleExtension = AndroidLibrary(
+                name = "androidx.lifecycle:lifecycle-extensions:${Versions.Libs.Android.lifecycleExtension}"
+            )
             val lifecycle = AndroidLibrary(
-                name = "androidx.lifecycle:lifecycle-extensions:${Versions.Libs.Android.lifecycle}"
+                name = "androidx.lifecycle:lifecycle-runtime-ktx:${Versions.Libs.Android.lifecycle}"
+            )
+            val swiperefreshlayout = AndroidLibrary(
+                name = "androidx.swiperefreshlayout:swiperefreshlayout:${Versions.Libs.Android.swiperefreshlayout}"
+            )
+            val coroutines = AndroidLibrary(
+                name = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Libs.Android.coroutines}"
+            )
+            val core = AndroidLibrary(
+                name = "androidx.core:core-ktx:${Versions.Libs.Android.core}"
             )
         }
 
@@ -124,6 +138,11 @@ object Deps {
                 iosX64 = "com.github.aakira:napier-iosX64:${Versions.Libs.MultiPlatform.napier}",
                 iosArm64 = "com.github.aakira:napier-iosArm64:${Versions.Libs.MultiPlatform.napier}"
             )
+            val sqldelight = MultiPlatformLibrary(
+                android = "com.squareup.sqldelight:android-driver:${Versions.sqldelight}",
+                ios = "com.squareup.sqldelight:native-driver:${Versions.sqldelight}",
+                common = "com.squareup.sqldelight:runtime:${Versions.sqldelight}"
+            )
         }
     }
 
@@ -132,6 +151,7 @@ object Deps {
         "kotlinx-serialization" to Plugins.kotlinSerialization,
         "dev.icerock.mobile.multiplatform-resources" to Plugins.mokoResources,
         "dev.icerock.mobile.multiplatform-network-generator" to Plugins.mokoNetwork,
-        "dev.icerock.mobile.multiplatform-units" to Plugins.mokoUnits
+        "dev.icerock.mobile.multiplatform-units" to Plugins.mokoUnits,
+        "com.squareup.sqldelight" to Plugins.sqldelight
     )
 }

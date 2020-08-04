@@ -1,7 +1,3 @@
-/*
- * Copyright 2019 IceRock MAG Inc. Use of this source code is governed by the Apache 2.0 license.
- */
-
 pluginManagement {
     repositories {
         jcenter()
@@ -24,9 +20,3 @@ pluginManagement {
 
 include(":android-app")
 include(":mpp-library")
-
-listOf(
-    Modules.MultiPlatform.domain,
-    Modules.MultiPlatform.Feature.config,
-    Modules.MultiPlatform.Feature.list
-).forEach { include(it.name) }

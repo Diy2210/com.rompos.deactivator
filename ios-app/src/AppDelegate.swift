@@ -19,12 +19,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         // * antilog - platform logger with println for https://github.com/AAkira/Napier
         // * baseUrl - server url from platform build configs (allows use schemes for server configs)
         // * newsUnitsFactory - platform factory of UITableView items for https://github.com/icerockdev/moko-units
-        AppComponent.factory = SharedFactory(
-            settings: AppleSettings(delegate: UserDefaults.standard),
-            antilog: DebugAntilog(defaultTag: "MPP"),
-            baseUrl: "https://newsapi.org/v2/",
-            newsUnitsFactory: NewsListUnitsFactory()
-        )
+//         AppComponent.factory = SharedFactory(
+//             settings: AppleSettings(delegate: UserDefaults.standard),
+//             antilog: DebugAntilog(defaultTag: "MPP"),
+//             baseUrl: "https://newsapi.org/v2/",
+//             newsUnitsFactory: NewsListUnitsFactory()
+//         )
         return true
     }
 }
