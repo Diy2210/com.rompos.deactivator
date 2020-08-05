@@ -5,6 +5,7 @@ plugins {
 repositories {
     jcenter()
     google()
+    mavenCentral()
 
     maven { url = uri("https://dl.bintray.com/icerockdev/plugins") }
 }
@@ -13,6 +14,7 @@ dependencies {
     implementation("dev.icerock:mobile-multiplatform:0.6.1")
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.72")
     implementation("com.android.tools.build:gradle:3.6.4")
+    implementation("org.jetbrains.kotlin:kotlin-serialization:1.3.72")
 }
 
 kotlinDslPluginOptions {

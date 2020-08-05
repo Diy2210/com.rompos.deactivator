@@ -3,14 +3,16 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("dev.icerock.mobile.multiplatform-units")
+    id("kotlin-android-extensions")
+    id("kotlinx-serialization")
 }
 
 android {
     compileSdkVersion(Versions.Android.compileSdk)
 
-//    dataBinding {
-//        isEnabled = true
-//    }
+    dataBinding {
+        isEnabled = true
+    }
 
     dexOptions {
         javaMaxHeapSize = "2g"
@@ -53,8 +55,9 @@ val depLibs = listOf(
         Deps.Libs.Android.core.name,
         Deps.Libs.Android.lifecycleExtension.name,
         Deps.Libs.Android.lifecycle.name,
+        Deps.Libs.Android.serialization.name,
+//        Deps.Libs.Android.androidExtensions.name,
         Deps.Libs.MultiPlatform.ktorClient.android !!,
-        Deps.Libs.MultiPlatform.sqldelight.android !!,
         Deps.Libs.MultiPlatform.napier.android !!,
         project(":mpp-library")
 )

@@ -1,7 +1,3 @@
-/*
- * Copyright 2019 IceRock MAG Inc. Use of this source code is governed by the Apache 2.0 license.
- */
-
 object Deps {
     object Plugins {
         const val kotlinSerialization =
@@ -50,6 +46,12 @@ object Deps {
             val core = AndroidLibrary(
                 name = "androidx.core:core-ktx:${Versions.Libs.Android.core}"
             )
+            val serialization = AndroidLibrary(
+                name = "org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.Libs.Android.serialization}"
+            )
+//            val androidExtensions = AndroidLibrary(
+//                name = "org.jetbrains.kotlin:kotlin-android-extensions:${Versions.Plugins.androidExtensions}"
+//            )
         }
 
         object MultiPlatform {

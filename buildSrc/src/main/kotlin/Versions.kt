@@ -12,7 +12,7 @@ object Versions {
         const val minSdk = 21
     }
 
-    const val kotlin = "1.3.70"
+    const val kotlin = "1.3.72"
 
     private const val mokoResources = "0.9.0"
     private const val mokoNetwork = "0.6.0"
@@ -31,7 +31,7 @@ object Versions {
 
     object Libs {
         object Android {
-            const val kotlinStdLib = Versions.kotlin
+            const val kotlinStdLib = kotlin
             const val appCompat = "1.1.0"
             const val material = "1.0.0"
             const val constraintLayout = "1.1.3"
@@ -41,10 +41,12 @@ object Versions {
             const val swiperefreshlayout = "1.1.0"
             const val coroutines = "1.3.5"
             const val core = "1.2.0"
+            const val serialization = "0.20.0"
+            const val androidExtensions = Plugins.androidExtensions
         }
 
         object MultiPlatform {
-            const val kotlinStdLib = Versions.kotlin
+            const val kotlinStdLib = kotlin
             const val coroutines = "1.3.5"
             const val serialization = "0.20.0"
             const val ktorClient = "1.3.2"

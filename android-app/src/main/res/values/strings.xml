@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Compoza.NET De-activator</string>
-    <string name="empty_list">Empty list</string>
     <string name="all_rights_reserved">All rights reserved</string>
     <string name="server_title">Server Title</string>
     <string name="server_url">Server URL</string>

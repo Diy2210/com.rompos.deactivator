@@ -7,12 +7,13 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import com.rompos.deactivator.R
 import com.rompos.deactivator.adapters.PluginsAdapter
-import com.rompos.deactivator.models.PluginViewModel
+import com.rompos.deactivator.models.PluginsResponseModel
 import com.rompos.deactivator.mpp.api.DeactivatorApi
+import com.rompos.deactivator.utils.Utils
 import io.ktor.client.features.ClientRequestException
 import kotlinx.coroutines.launch
-import org.json.JSONArray
-import org.json.JSONObject
+import kotlinx.serialization.UnstableDefault
+import kotlinx.serialization.json.Json
 
 class PluginsActivity : AppCompatActivity(), LifecycleOwner {
 
@@ -26,8 +27,8 @@ class PluginsActivity : AppCompatActivity(), LifecycleOwner {
         setContentView(R.layout.activity_plugins)
 //        plugins.visibility = View.INVISIBLE
 
-        val host: String? = intent.getStringExtra("url")
-        val token: String? = intent.getStringExtra("token")
+        val host: String? = intent.getStringExtra("url").toString()
+        val token: String? = intent.getStringExtra("token").toString()
 
         supportActionBar?.title = intent.getStringExtra("title")
 
@@ -41,30 +42,16 @@ class PluginsActivity : AppCompatActivity(), LifecycleOwner {
         getPlugins()
     }
 
+    @OptIn(UnstableDefault::class)
     private fun generatePage(response: String) {
-        val res = JSONObject(response)
-        if (res.get("success") == true) {
-            val data: JSONArray = res.getJSONArray("data")
-            val pluginsList = ArrayList<PluginViewModel>()
-            (0 until data.length()).forEach { i ->
-                val item = data.getJSONObject(i)
-                with (item) {
-                    pluginsList.add(
-                        PluginViewModel(
-                            getString("title"),
-                            getString("plugin"),
-                            getBoolean("status")
-                        )
-                    )
-                }
-            }
-//            plugins.adapter = PluginsAdapter(applicationContext, pluginsList)
-//            plugins.visibility = View.VISIBLE
+        val resp = Json.parse(PluginsResponseModel.serializer(), response)
+        if (resp.success) {
+            plugins.adapter = PluginsAdapter(applicationContext, resp.data)
+            plugins.visibility = View.VISIBLE
         } else {
-//            Utils.snackMsg(mainView, getString(R.string.server_error))
+            Utils.snackMsg(mainView, getString(R.string.server_error))
         }
     }
-
 
     private fun getPlugins() {
         lifecycleScope.launch {
@@ -96,7 +83,7 @@ class PluginsActivity : AppCompatActivity(), LifecycleOwner {
                     getPlugins()
                 }
             } catch (e: Exception) {
-//                Utils.snackMsg(pluginsView, e.message.toString() )
+                Utils.snackMsg(pluginsView, e.message.toString() )
             }
         }
     }

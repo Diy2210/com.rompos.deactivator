@@ -4,7 +4,9 @@ import android.view.View
 import android.widget.Switch
 import androidx.lifecycle.ViewModel
 import com.rompos.deactivator.activities.PluginsActivity
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class PluginViewModel(
     val title: String,
     val plugin: String,

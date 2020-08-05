@@ -4,7 +4,7 @@ plugins {
     id("dev.icerock.mobile.multiplatform")
     id("dev.icerock.mobile.multiplatform-resources")
     id("kotlinx-serialization")
-//    id("kotlin-android-extensions")
+    id("kotlin-android-extensions")
     id("com.squareup.sqldelight")
 }
 
@@ -33,6 +33,7 @@ val mppLibs = listOf(
     Deps.Libs.MultiPlatform.kotlinStdLib,
     Deps.Libs.MultiPlatform.coroutines,
     Deps.Libs.MultiPlatform.ktorClient,
+    Deps.Libs.MultiPlatform.serialization,
     Deps.Libs.MultiPlatform.sqldelight
 )
 

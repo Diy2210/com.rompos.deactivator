@@ -29,7 +29,6 @@ class EditActivity : AppCompatActivity() {
         val cancelBtn: Button = findViewById(R.id.cancelBtn)
 
         saveBtn.setOnClickListener {
-
             val title = serverTitle.text.toString()
             val url = serverUrl.text.toString()
             val token = serverToken.text.toString()
