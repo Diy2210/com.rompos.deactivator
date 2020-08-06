@@ -5,7 +5,8 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="item" type="com.rompos.deactivator.models.PluginViewModel"/>
+<!--        <variable name="item" type="com.rompos.deactivator.models.PluginViewModel"/>-->
+        <variable name="item" type="com.rompos.deactivator.mpp.models.PluginViewModel"/>
     </data>
 
     <RelativeLayout
@@ -19,9 +20,13 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp" android:layout_toStartOf="@+id/pluginState"
+                android:layout_marginBottom="8dp"
+                android:layout_toStartOf="@+id/pluginState"
                 android:lines="2"
-                android:maxLines="2" android:tag="@{item.plugin}" android:text="@{item.title}" android:textSize="18sp"/>
+                android:maxLines="2"
+                android:tag="@{item.plugin}"
+                android:text="@{item.title}"
+                android:textSize="18sp"/>
         <Switch
                 android:id="@+id/pluginState"
                 android:layout_width="wrap_content"
@@ -30,8 +35,11 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="8dp"
-                android:width="80sp"
-                android:checked="@{item.status}" android:onClick="@{(view) -> item.changeState(view)}"/>
+                android:width="80sp"/>
+<!--                android:checked="@{item.status}" -->
+<!--                android:onClick="@{(view) -> -->
+<!--                item.changeState(view)}"-->
+<!--        />-->
     </RelativeLayout>
 
 </layout>

@@ -49,9 +49,6 @@ object Deps {
             val serialization = AndroidLibrary(
                 name = "org.jetbrains.kotlinx:kotlinx-serialization-runtime:${Versions.Libs.Android.serialization}"
             )
-//            val androidExtensions = AndroidLibrary(
-//                name = "org.jetbrains.kotlin:kotlin-android-extensions:${Versions.Plugins.androidExtensions}"
-//            )
         }
 
         object MultiPlatform {

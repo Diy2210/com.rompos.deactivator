@@ -9,7 +9,7 @@ import com.rompos.deactivator.models.PluginViewModel
 
 class PluginsAdapter(
     val context: Context,
-    var items: List<PluginViewModel>
+    var items: List<com.rompos.deactivator.mpp.models.PluginViewModel>
 ) : RecyclerView.Adapter<PluginsAdapter.ItemTableViewHolder>() {
 
     override fun onCreateViewHolder(

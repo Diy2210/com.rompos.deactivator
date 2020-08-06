@@ -56,7 +56,6 @@ val depLibs = listOf(
         Deps.Libs.Android.lifecycleExtension.name,
         Deps.Libs.Android.lifecycle.name,
         Deps.Libs.Android.serialization.name,
-//        Deps.Libs.Android.androidExtensions.name,
         Deps.Libs.MultiPlatform.ktorClient.android !!,
         Deps.Libs.MultiPlatform.napier.android !!,
         project(":mpp-library")

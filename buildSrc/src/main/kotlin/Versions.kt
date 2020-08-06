@@ -42,6 +42,7 @@ object Versions {
             const val coroutines = "1.3.5"
             const val core = "1.2.0"
             const val serialization = "0.20.0"
+            const val kapt = kotlin
             const val androidExtensions = Plugins.androidExtensions
         }
 
