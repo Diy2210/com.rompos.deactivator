@@ -7,15 +7,15 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.lifecycle.lifecycleScope
-import com.rompos.deactivator.PluginRepository
-import com.rompos.deactivator.Plugins
 import com.rompos.deactivator.R
+import com.rompos.deactivator.ServerRepository
+import com.rompos.deactivator.Servers
 import com.rompos.deactivator.utils.Utils
 import kotlinx.coroutines.launch
 
 class EditActivity : AppCompatActivity() {
 
-    private val pluginRepository: PluginRepository = PluginRepository()
+    private val pluginRepository: ServerRepository = ServerRepository()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +33,7 @@ class EditActivity : AppCompatActivity() {
             val url = serverUrl.text.toString()
             val token = serverToken.text.toString()
 
-            val plugin = Plugins(0, title, url, token)
+            val plugin = Servers(0, title, url, token)
 
             if (title.isEmpty() || url.isEmpty() || token.isEmpty()) {
                 Utils.snackMsg(it, getString(R.string.error_empty_field))

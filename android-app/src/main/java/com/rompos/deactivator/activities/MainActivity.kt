@@ -12,9 +12,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.rompos.deactivator.PluginRepository
-import com.rompos.deactivator.Plugins
 import com.rompos.deactivator.R
+import com.rompos.deactivator.ServerRepository
+import com.rompos.deactivator.Servers
 import com.rompos.deactivator.adapters.ServersAdapter
 import com.rompos.deactivator.utils.Utils
 import kotlinx.coroutines.launch
@@ -29,9 +29,9 @@ class MainActivity : AppCompatActivity() {
         const val CONNECTION_ERROR = 2
     }
 
-    val pluginRepository: PluginRepository = PluginRepository()
+    val pluginRepository: ServerRepository = ServerRepository()
     lateinit var adapter: ServersAdapter
-    lateinit var serversList: List<Plugins>
+    lateinit var serversList: List<Servers>
     lateinit var mainView: ConstraintLayout
 
     var swipeContainer: SwipeRefreshLayout = SwipeRefreshLayout(this)
@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
                 // Click Server Action
                 object : ServersAdapter.ClickCallback {
-                    override fun onItemClicked(item: Plugins) {
+                    override fun onItemClicked(item: Servers) {
                         val intent = Intent(applicationContext, PluginsActivity::class.java)
                         with(item) {
                             intent.putExtra("title", title)
@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
 
                 // Edit Server Action
                 object : ServersAdapter.EditClickCallback {
-                    override fun onEditItemClicked(item: Plugins) {
+                    override fun onEditItemClicked(item: Servers) {
                         val intent = Intent(applicationContext, EditActivity::class.java)
                         intent.putExtra("ID", item.id)
                         intent.putExtra("title", item.title)
@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
 
                 // Delete Server Action
                 object : ServersAdapter.DeleteClickCallback {
-                    override fun onDeleteItemClicked(item: Plugins) {
+                    override fun onDeleteItemClicked(item: Servers) {
                         AlertDialog.Builder(this@MainActivity)
                             .setTitle(getString(R.string.confirm_delete, item.title))
                             .setCancelable(true)

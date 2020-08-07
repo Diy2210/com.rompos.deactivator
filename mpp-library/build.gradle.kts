@@ -8,7 +8,7 @@ plugins {
 }
 
 sqldelight {
-    database("Plugin") {
+    database("Server") {
         packageName =  Versions.App.namespace
     }
 }

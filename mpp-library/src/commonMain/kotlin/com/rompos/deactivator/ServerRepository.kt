@@ -1,19 +1,19 @@
 package com.rompos.deactivator
 
-expect fun createDB(): Plugin
+expect fun createDB(): Server
 
-open class PluginRepository {
+open class ServerRepository {
     private val database = createDB()
-    private val pluginQueries = database.pluginQueries
+    private val serverQueries = database.serverQueries
 
     // Insert New Plugins
-    fun insert(plugin: Plugins) {
-        pluginQueries.insertPlugin(plugin.title, plugin.url, plugin.token)
+    fun insert(server: Servers) {
+        serverQueries.insertServer(server.title, server.url, server.token)
     }
 
     // Get All Plugins
-    fun list(): List<Plugins> {
-        return pluginQueries.selectAll().executeAsList()
+    fun list(): List<Servers> {
+        return serverQueries.selectAll().executeAsList()
     }
 
     // Get Plugin by ID
@@ -23,11 +23,11 @@ open class PluginRepository {
 
     // Update Plugin
     fun update(id: Long, title: String, url: String, token: String) {
-        pluginQueries.updatePlugin(title, url, token, id)
+        serverQueries.updateServer(title, url, token, id)
     }
 
     // Delete Plugin
     fun delete(id: Long) {
-        pluginQueries.deletePlugin(id)
+        serverQueries.deleteServer(id)
     }
 }

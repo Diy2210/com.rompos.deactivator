@@ -5,11 +5,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.rompos.deactivator.Plugins
 import com.rompos.deactivator.R
+import com.rompos.deactivator.Servers
 
 class ServersAdapter(
-    var items: List<Plugins>,
+    var items: List<Servers>,
     val clickItemCallback: ClickCallback,
     private val clickEditItemCallback: EditClickCallback,
     private val clickDeleteItemCallback: DeleteClickCallback
@@ -19,7 +19,7 @@ class ServersAdapter(
         private val serverTitle = view.findViewById<TextView>(R.id.serverTitle)
         private val serverUrl = view.findViewById<TextView>(R.id.serverUrl)
 
-        fun bind(item: Plugins) {
+        fun bind(item: Servers) {
             serverTitle.text = item.title
             serverUrl.text = item.url
             itemView.setOnClickListener {
@@ -56,14 +56,14 @@ class ServersAdapter(
     }
 
     interface ClickCallback {
-        fun onItemClicked(item: Plugins)
+        fun onItemClicked(item: Servers)
     }
 
     interface EditClickCallback {
-        fun onEditItemClicked(item: Plugins)
+        fun onEditItemClicked(item: Servers)
     }
 
     interface DeleteClickCallback {
-        fun onDeleteItemClicked(item: Plugins)
+        fun onDeleteItemClicked(item: Servers)
     }
 }

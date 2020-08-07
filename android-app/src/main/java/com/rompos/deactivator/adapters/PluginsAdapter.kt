@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.rompos.deactivator.databinding.PluginListItemBinding
-import com.rompos.deactivator.models.PluginViewModel
+import com.rompos.deactivator.mpp.models.PluginViewModel
 
 class PluginsAdapter(
     val context: Context,

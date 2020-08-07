@@ -5,7 +5,7 @@ import android.content.Context
 
 lateinit var appContext: Context
 
-actual fun createDB() : Plugin {
-    val driver = AndroidSqliteDriver(Plugin.Schema, appContext, "Plugin.db")
-    return Plugin(driver)
+actual fun createDB() : Server {
+    val driver = AndroidSqliteDriver(Server.Schema, appContext, "Plugin.db")
+    return Server(driver)
 }
